@@ -16,6 +16,21 @@ void bubbleSort(int *data,int len)
      }
 }
 
+void insertSort(int *data,int len)
+{
+    int key;
+    for(int i=1;i<len;i++)
+    {
+        key=data[i];
+        int j=i-1;
+        while(j>=0&&data[j]>key)
+        {
+            data[j+1]=data[j];
+            j--;
+        }
+        data[j+1]=key;
+    }
+}
 
 int main(int argc,char const *argv[])
 {
@@ -28,6 +43,11 @@ int main(int argc,char const *argv[])
         printf("%d ",data[i]);
     }
     int data1[]={47,35,60,95,77,15,28};
-
+        printf("\n插入:\n");
+    insertSort(data1,len);
+     for(int i=0;i<len;i++)
+    {
+        printf("%d ",data1[i]);
+    }
     return 0;
 }
