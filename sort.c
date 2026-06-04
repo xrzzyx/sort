@@ -63,6 +63,28 @@ void binaryInsertSort(int *data,int len)
     }
 }
 
+void selectSort(int *data,int len)
+{
+    int min;
+    for(int i=0;i<len;i++)
+    {
+        min=i;//记起始位置为最小值的下标
+        for(int j=i;j<len;j++)
+        {
+            if(data[min]>data[j])
+            {
+                min=j;
+            } 
+        }
+        if(min!=i)
+        {
+        int temp=data[min];
+        data[min]=data[i];
+        data[i]=temp;
+        }
+    }
+}
+
 int main(int argc,char const *argv[])
 {
     int data[]={47,35,60,95,77,15,28};
@@ -86,6 +108,13 @@ int main(int argc,char const *argv[])
     for(int i=0;i<len;i++)
     {
         printf("%d ",data2[i]);
+    }
+     int data3[]={47,35,60,95,77,15,28};
+    printf("\n简单选择排序:\n");
+    binaryInsertSort(data3,len);
+    for(int i=0;i<len;i++)
+    {
+        printf("%d ",data3[i]);
     }
     return 0;
 }
